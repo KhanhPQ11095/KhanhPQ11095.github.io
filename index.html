@@ -95,9 +95,35 @@ snake.x=160;
 snake.y=160;
 snake.cells=[];
 snake.maxCells=4;
+snake.dx=grid;
+snake.dy=0;
+apple.x=getRandomInt(0,25)*grid;
+apple.y=getRandomInt(0,25)*grid;
 }
 }
+});
 }
+//Sự kiện bàn phím ấn xuống
+document.addEventListener('keydown', function(e){
+//Lọc sự kiện keydown để rắn không đi ngược lại
+if(e.which===37 && snake.dy===0){
+snake.dx=-grid;
+snake.dy=0;
 }
+else if(e.which===38 && snake.dy===0){
+snake.dy=-grid;
+snake.dx=0;
+}
+else if(e.which===39 && snake.dy===0){
+snake.dy=-grid;
+snake.dx=0;
+}
+else if(e.which===40 && snake.dy===0){
+snake.dy=-grid;
+snake.dx=0;
+}
+});
+requestAnimationFrame(loop);
+</script>
 </body>
 </html>
