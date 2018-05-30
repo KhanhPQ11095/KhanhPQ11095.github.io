@@ -1,0 +1,108 @@
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#header,
+.cont_mid,
+.cont_bottom {
+	background-color: #2D2F35;
+	color: white;
+	border-bottom: #D3D3D3 solid 1px;
+}
+
+.cont_top {
+	background-image: url('../img/bg_home_intro.gif');
+	position: absolute;
+	height: 47%;
+	width: 98.8%;
+	border-bottom: #D3D3D3 solid 1px;
+}
+
+.cont_top p {
+	color: white;
+	width: 30%;
+	margin: 10px 0 10px 100px;
+	font-size: 15px;
+}
+
+.anh_cont_top {
+	position: relative;
+	padding-left: 50%;
+}
+
+.out_product {
+	font-size: 30px;
+	word-spacing: 10px;
+	color: yellow;
+	margin: 20px 0 10px 100px;
+}
+
+.cont_mid {
+	text-align: center;
+	margin-top: -3px; 
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+/*
+*Nay
+*Chua
+*Xong
+*/
+
+.cont_mid img { 
+
+}
+
+.num {
+	
+}
+
+.only_have {
+	font-size: 20px;
+	word-spacing: 10px;
+	color: yellow;
+	margin-left: 100px;
+}
+
+.left {
+	text-align: left;
+	width: 500px;	
+	float: left;
+}
+
+.left p {
+	width: 100%;
+	margin-left: 100px;
+	font-size: 15px;
+}
+
+.notified {
+	font-size: 20px;
+	word-spacing: 10px;
+	color: yellow;
+	margin-right: 100px;
+}
+
+.right {
+	width: 500px;
+	float: right;
+	margin-right: 100px;
+}
+
+.right p {
+	width: 100%;
+	font-size: 15px;
+	padding-top: 20px;
+}
+
+.clear{
+	clear: both;
+}
+
+#footer {
+	background-image: url('../img/bg_footer.gif');
+	text-align: center;
+	color: white;
+}
