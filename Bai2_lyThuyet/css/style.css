@@ -2,7 +2,7 @@
 	font-family: Arial, Helvetica, sans-serif !important;
 	font-size: 11px;
 	background-color: #e6f3fb;
-/*	margin: auto; */
+	margin: auto;
 	width: 300px;
 	min-height: 400px;
 }
@@ -22,13 +22,13 @@
 .blog .blog_01 {
 	border-top: solid 2px #ffa500;
 	padding: 10px 10px 10px 10px;
-	background-color: #FFF;
+	background-color: #FFFFFF;
 	position: relative;
 	width: auto;
 	height: 85px;
 }
 
-.blog .blog_01 .img_LT1 {
+.blog_01 .img_LT1 {
 	border: groove 1px;
 	width: 152px;
 	height: auto;
@@ -50,3 +50,181 @@
 	color: #0a6395;
 	font-weight: bold;
 }
+
+.blog_02 {
+	margin-top: -11px;
+}
+
+.blog_02 ul {
+	margin-left: -30px;
+	width: 270px;
+	list-style-type: none;
+}
+
+.blog_02 li {
+	border-bottom: solid 1px white;
+	padding-left: 10px;
+	margin-left: -10px;
+	background: #faf0bf;
+	height: 25px;
+	line-height: 2.5;
+	color: #0a6395;
+}
+
+.horo {
+	width: 280px;
+	margin: -11px 10px 0 10px;
+}
+
+.horo .tit_horoscopes {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.horo .horo_01 {
+	border-top: solid 2px #ffa500;
+	padding: 10px 10px 10px 10px;
+	background-color: #FFFFFF;
+	width: auto;
+	height: 90px;
+	position: relative;
+}
+
+.horo_01 .img_LT2{
+	position: absolute;
+}
+
+.img_LT2 img {
+	height: 80px;
+}
+
+.horo_01 .cont_02 {
+	position: absolute;
+	right: 10px;
+	width: 165px;
+}
+
+.cont_02 .tit_libra {
+	font-weight: bold;
+}
+
+.cont_02 .date {
+	color: #808080;
+	margin-top: 1px;
+	margin-bottom: -10px;
+}
+
+.cont_02 a {
+	color: #0a6395;
+}
+
+.horo_02 {
+	background: #f4f4ec;
+	position: relative;
+	height: 47px;
+}
+
+.horo_02 .cont_03 {
+	position: absolute;
+	left: 20px;
+	top: 11px;
+}
+
+.cont_03 a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0a6395;
+}
+
+.cont_03 p {
+	margin: 0;
+}
+
+.horo_02 .img_LT3 {
+	position: absolute;
+	right: 0;
+	top: -3px;
+}
+
+.img_LT3 img {
+	height: 50px;
+}
+
+.get {
+	width: 280px;
+	margin: 15px 10px 0 10px;
+}
+
+.get .tit_getnews {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.get .div_get {
+	background: #FFFFFF;
+	border-top: solid 2px #ffa500;
+	position: relative;
+	height: 100px;
+}
+
+.div_get .cont_04 {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 125px;
+}
+
+.div_get .img_LT4 {
+	position: absolute;
+	right: 0;
+}
+
+.img_LT4 img {
+	height: 100px;
+}
+
+.cont_04 a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0a6395;
+}
+
+.cont_04 p {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.border {
+	border-top: #cccccc solid 1px;
+	margin-top: 5px;
+}
+
+.comp {
+	width: 280px;
+	margin: 5px 10px 0 10px;
+	padding-bottom: 15px;
+}
+
+.comp .tit_comp {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.comp_cont {
+	background: #FFFFFF;
+	border: #dadada solid 1px;
+	position: relative;
+	height: 60px;
+}
+
+.comp_cont .link_bottom {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.link_bottom a {
+	text-decoration: none;
+	color: #0a6395;
+}
+
