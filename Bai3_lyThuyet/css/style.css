@@ -1,0 +1,42 @@
+body {
+	font-family: arial !important;
+	font-size: 0.6875em;
+	color: #595959;
+}
+
+#container {
+	margin: 50px;
+	background: #121214;
+}
+
+#left {
+	width: 435px;
+	border: solid 1px;
+	position: relative;
+}
+
+.top {
+	position: relative;
+}
+
+.top img {
+	border-radius: 10%;
+	border: solid 5px;
+	position: relative;
+	width: 110px;
+	margin-right: 30px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+.content_01 .title_1 {
+	color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	left: 150px;
+}
+
+.content_01 .cont_1 {
+	padding-top: 40px;
+	padding-right: 10px;
+}
