@@ -1,0 +1,169 @@
+body {
+	font-family: Times New Roman !important;
+	color: #595959;
+	background: #121214;
+}
+
+#header {
+	background-image: url('../img/fill_header.jpg');
+	height: 349px;
+	position: relative;
+}
+
+.img_mystyle .logo {
+	position: absolute;
+	top: 53px;
+	left: 43px;
+}
+
+.img_mystyle p {
+	font-size: 40px;
+	color: #000000;
+	position: absolute;
+	top: 55px;
+	left: 150px;
+	word-spacing: 10px;
+	font-weight: bold;
+}
+
+.img_mystyle .dot1,
+.img_mystyle .dot2,
+.img_mystyle .dot3 {
+	height: 5px;
+	position: absolute;
+	top: 125px;
+}
+
+.img_mystyle .dot1 {
+	left: 135px;
+}
+
+.img_mystyle .dot2 {
+	left: 215px;
+}
+
+.img_mystyle .dot3 {
+	left: 320px;
+}
+
+.menu {
+	position: absolute;
+	top: 191px;
+	left: 60px;
+}
+
+.text_menu1 {
+	color: #FFFFFF;
+	font-size: 30px;
+	padding-left: 40px;
+	margin-top: -5px;
+}
+
+
+.text_menu1 .span_f,
+.text_menu1 .span_d {
+	padding-left: 55px;
+}
+
+.text_menu1 .span_c {
+	padding-left: 65px;
+}
+
+.text_menu1 .span_t {
+	padding-left: 75px;
+}
+
+#content {
+	position: relative;
+	height: 800px;
+}
+
+.left {
+	width: 250px;
+	margin: 40px 0 0 70px;
+	padding: 70px 20px 40px 20px;
+	background: #232326;
+}
+
+.left .left_01 {
+	padding: 20px 20px 60px 20px;
+	border-top: solid 3px;
+	border-bottom: solid 1px;
+}
+
+.left .left_02 {
+	margin: 20px 0 0 40px;
+	line-height: 30px;
+}
+
+.left_02 a {
+	color: #595959;
+}
+
+.left_02 img {
+	padding: 5px;
+}
+
+.right {
+	position: absolute;
+	left: 400px;
+	top: 70px;
+	width: 500px;
+}
+
+.design {
+	width: 500px;
+}
+
+.more1,
+.more2 {
+	position: absolute;
+	top: 175px;
+	left: 15px;
+	width: 150px;
+}
+
+.r_top p,
+.r_bot p {
+	position: absolute;
+	top: 190px;
+	left: 15px;
+	border-bottom: dotted 1px;
+	padding-bottom: 10px;
+	width: 460px;
+}
+
+.r_top a,
+.r_bot a {
+	position: absolute;
+	top: 265px;
+	left: 35px;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.arr1 {
+	position: absolute;
+	top: 265px;
+	left: 15px;
+}
+
+.r_bot {
+	position: absolute;
+	top: 350px;
+}
+
+#footer {
+	width: 805px;
+	margin-left: 70px;
+	border-top: dotted 1px;
+}
+
+#footer p {
+	padding: 5px;
+}
+
+#footer a {
+	color: #595959;
+}
