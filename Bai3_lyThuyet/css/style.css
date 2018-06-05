@@ -2,21 +2,22 @@ body {
 	font-family: arial !important;
 	font-size: 0.6875em;
 	color: #595959;
+	background: #121214;
 }
 
 #container {
 	margin: 50px;
-	background: #121214;
+	position: relative;
 }
 
 #left {
 	width: 435px;
-	border: solid 1px;
 	position: relative;
 }
 
 .top {
 	position: relative;
+	border-bottom: dotted 1px;
 }
 
 .top img {
@@ -39,4 +40,68 @@ body {
 .content_01 .cont_1 {
 	padding-top: 40px;
 	padding-right: 10px;
+}
+
+.top .cont_2 {
+	padding-left: 10px;
+}
+
+#left .arr_1,
+.bot_LR .arr1 {
+	padding: 10px 5px 0px 10px;
+}
+
+.more1 {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.bot {
+	position: relative;
+	border-bottom: dotted 1px;
+	padding-bottom: 20px;
+}
+
+.bot .title_2 {
+	color: #FFFFFF;
+	padding: 60px 0 0 10px;
+}
+
+.bot .cont_1 {
+	margin: -10px 0 0 10px;
+}
+
+.bot a {
+	color: #595959	
+}
+
+.bot_LR {
+	display: flex;
+	padding-top: 15px;
+}
+
+#right {
+	position: absolute;
+	left: 550px;
+	top: 0px;
+	width: 300px;
+}
+
+.title_3,
+.title_4 {
+	color: #FFFFFF;
+}
+
+#right .nd1 {
+	padding-bottom: 50px;
+}
+
+.bor1 .img_2 {
+	border-top: solid 1px;
+	padding-top: 20px;
+}
+#right .bor1 {
+	background: #232326;
+	height: 350px;
+	padding: 60px 0px 0px 60px;
 }
