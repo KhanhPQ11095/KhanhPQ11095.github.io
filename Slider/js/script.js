@@ -33,9 +33,9 @@ function showSlides(n) {
 	slides[slideIndex-1].style.display = "block";
 	dots[slideIndex-1].className += " active";
 	// Change Img
-	$(slides[slideIndex-1]).fadeIn(1000);
-	$(slides[slideIndex-1]).delay(3000);
+	$(slides[slideIndex-1]).fadeIn(2000);
+	$(slides[slideIndex-1]).delay(4000);
 	$(slides[slideIndex-1]).fadeOut(1000);
 
-	setTimeout(showSlides, 4000);
+	setTimeout(showSlides, 5000);
 }
