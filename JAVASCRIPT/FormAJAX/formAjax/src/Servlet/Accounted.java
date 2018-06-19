@@ -28,9 +28,9 @@ public class Accounted{
 		return false;
 		
 	}
-//	public static void main(String[]args) {
+	public static void main(String[]args) {
 //		Accounted main = new Accounted();
 //		boolean result= main.insertTK("admin001", "123123123", "admin@hotmail.com", "1/1/2018");
 //		System.out.println(result);
-//	}
+	}
 }
