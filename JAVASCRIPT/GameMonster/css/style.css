@@ -1,11 +1,18 @@
 #container {
-	width: 500px;
+	width: 450px;
 	height: 600px;
-	border: solid 1px;
 	margin: auto;
 }
 
-#topGame,
-#downGame {
+#menu,
+#main {
 	display: block;
+}
+
+#menu {
+	background: url('../img/Top-BackGround.jpg');
+}
+
+#main {
+	background:  url('../img/Down-BackGround.png');
 }

@@ -1,0 +1,55 @@
+body {
+	width: 1000px;
+	height: 620px;
+	margin: auto;
+	border: solid 1px;
+	position: relative;
+}
+
+.slider img{
+	width: 800px;
+	height: 500px;
+	position: absolute;
+	left: 10%;
+}
+
+.next input{
+	position: absolute;
+	right: 7.5%;
+	height: 500px;
+}
+
+.prev input{
+	position: absolute;
+	left: 7.5%;
+	height: 500px;
+}
+
+.slide-mini img {
+	width: 150px;
+	height: 90px;
+}
+
+#box0 {
+	position: absolute;
+	left: 10%;
+	bottom: 2%;
+}
+
+#box1 {
+	position: absolute;
+	left: 31.5%;
+	bottom: 2%;
+}
+
+#box2 {
+	position: absolute;
+	left: 53.5%;
+	bottom: 2%;
+}
+
+#box3 {
+	position: absolute;
+	left: 75%;
+	bottom: 2%;
+}
