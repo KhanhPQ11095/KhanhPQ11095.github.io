@@ -1,41 +1,30 @@
-// Prev-Next
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-	showSlides(slideIndex += n);
-}
-
-// Dots
-function currentSlides(n) {
-	showSlides(slideIndex = n)
-}
-
-function showSlides(n) {
-	var slides = document.getElementsByClassName("slider_box");
-	var dots = document.getElementsByClassName("dot");
-	if (n === undefined) {
-		n = ++slideIndex;
-	}
-	if (n > slides.length) {
-		slideIndex = 1;
+var slideIndex=1;
+function showSlide(n) {
+	var sli = document.getElementsByClassName("sli");
+	var box = document.getElementsByClassName("box");
+	var i;
+	if (n > sli.length) {
+	     slideIndex = 1;	
 	}
 	if (n < 1) {
-		slideIndex = slides.length;
+	     slideIndex = sli.length;	
 	}
-	for (var i = 0; i < slides.length; i++){
-		slides[i].style.display = "none";
+	for (i = 0; i < sli.length; i++) {
+      sli[i].style.display = "none";  
+    }
+	for (i = 0 ; i < box.length; i++) {
+		box[i].className = box[i].className.replace(" active", "");
 	}
-	for (var i = 0; i < dots.length; i++){
-		dots[i].className = dots[i].className.replace(" active", "");
-	}
-
-	slides[slideIndex-1].style.display = "block";
-	dots[slideIndex-1].className += " active";
-	// Change Img
-	$(slides[slideIndex-1]).fadeIn(2000);
-	$(slides[slideIndex-1]).delay(4000);
-	$(slides[slideIndex-1]).fadeOut(1000);
-
-	setTimeout(showSlides, 5000);
+	sli[slideIndex-1].style.display = "block";
+	box[slideIndex-1].className += " active";
+	console.log(slideIndex);
+}
+function plusDiv(n)
+{
+	showSlide(slideIndex+=n);
+	
+}
+function currentDiv(n)
+{
+	showSlide(slideIndex=n);
 }

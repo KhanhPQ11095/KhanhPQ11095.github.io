@@ -1,67 +1,73 @@
-#main {
-	position: relative;
+body {
 	margin: auto;
-	padding: 50px;
 	width: 1000px;
-	height: 500px;
 }
-
-#prev,
-#next {
-	width: 80px;
-	height: 143px;
-	position: absolute;
-	background-size: 200px;
-	cursor: pointer;
-	top: 250px;
+#wrapper {
+	background-color: #FFF;
+	overflow: hidden;
+	margin: auto;
 }
-
-#prev {
-	background-image: url('../img/prev-next.png');
-	background-position: 0 0;
-	left: 60px;
+#content {
+	padding-top: 100px;
+	display: flex;
+	margin: auto;
 }
-
-#next {
-	background-image: url('../img/prev-next.png');
-	background-position: 80px 0;
-	right: 60px;
-}
-
-#wrap_slider {
-	position: relative;
-}
-
-#slider {
-	position: absolute;
-	padding: 0 100px;
-}
-
-.slider_box {
-	position: absolute;
-	width: 800px;
-	height: 500px;
-	display: block;
-}
-
-.index {
-	text-align: center;
-	position: relative;
-	top: 20px;
-}
-
-.dot {
-	cursor: pointer;
-	height: 15px;
-	width: 15px;
-	margin: 0 5px;
-	background-color: #BBB;
-	border-radius: 50%;
+#previous {
 	display: inline-block;
-	transition: background-color 0.6s ease;
+	padding-top: 250px;
+	cursor: pointer;
 }
-
-.active, .dot:hover {
+#next {
+	display: inline-block;
+	padding-top: 250px;
+	cursor: pointer;
+}
+#images {
+	margin-left: 20px;
+	margin-right: 20px;
+	clear: both;
+}
+.sli {
+	display: none;
+}
+.sli img {
+	width:800px;
+	height:500px;
+}
+.animate-fading {
+	animation: fading 8s infinite
+}
+@keyframes fading {
+0% {
+opacity:0
+}
+50% {
+opacity:1
+}
+100% {
+opacity:0
+}
+}
+#slide {
+	display: flex;
+	width: 100%;
+	padding-left: 205px;
+	margin-bottom: 20px;
+}
+#slide img {
+	margin-top: 5px;
+	margin-left: 8px;
+	margin-bottom: 10px;
+	width: 100px;
+	height: 50px;
+}
+.active {
+	opacity: 0.5;
 	background-color: #717171;
+	border: solid #000000 3px;
 }
-
+.box:hover {
+	background-color: #717171;
+	border: solid 1px #000000;
+	cursor: pointer;
+}
