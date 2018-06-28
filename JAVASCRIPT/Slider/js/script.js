@@ -17,7 +17,6 @@ function showSlide(n) {
 	}
 	sli[slideIndex-1].style.display = "block";
 	box[slideIndex-1].className += " active";
-	console.log(slideIndex);
 }
 function plusDiv(n)
 {
