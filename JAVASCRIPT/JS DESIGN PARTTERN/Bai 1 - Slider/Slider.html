@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-	<meta charset="UTF-8">
-	<meta name="author" content="KhanhPQ">
-	<title>Slider - JSDP</title>
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-	<div id="container">
-		<div class="prev">
-			<input type="button" value="&#10094;" onclick="prev()">
-		</div>
-		<div class="slider">
-			<div class="img">
-				<img src="img/slide0.jpg" alt="">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="KhanhPQ">
+		<title>Slider - JSDP</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="content">
+				<div id="prev">
+					<input type="button" value="&#10094;">
+				</div>
+				<div id="slider">
+					<ul class="slides-container">
+						<li class="slide"><img src="img/slide1.jpg" alt="slide1"></li>
+						<li class="slide"><img src="img/slide2.jpg" alt="slide2"></li>
+						<li class="slide"><img src="img/slide3.jpg" alt="slide3"></li>
+						<li class="slide"><img src="img/slide4.jpg" alt="slide4"></li>
+						<li class="slide"><img src="img/slide1.jpg" alt="slide1"></li>
+					</ul>
+				</div>
+				<div id="next">
+					<input type="button" value="&#10095;">
+				</div>
 			</div>
-			<div class="img">
-				<img src="img/slide1.jpg" alt="">
-			</div>
-			<div class="img">
-				<img src="img/slide2.jpg" alt="">
-			</div>
-			<div class="img">
-				<img src="img/slide3.jpg" alt="">
+			<div id="page">
+				<img class="box" id="box1" src="img/slide1.jpg" alt="slide0" onClick="$('#box1').onClick(1)">
+				<img class="box" id="box2" src="img/slide2.jpg" alt="slide1" onClick="$('#box2').onClick(2)">
+				<img class="box" id="box3" src="img/slide3.jpg" alt="slide2" onClick="$('#box3').onClick(3)">
+				<img class="box" id="box4" src="img/slide4.jpg" alt="slide3" onClick="$('#box4').onClick(4)">
 			</div>
 		</div>
-		<div class="next">
-			<input type="button" value="&#10095;" onclick="next()">
-		</div>
-	</div>
-	<div id="down">
-		<div class="slide-mini">
-			<img src="img/slide0.jpg" alt="" id="box0" class="box" onclick="box(1)">
-			<img src="img/slide1.jpg" alt="" id="box1" class="box" onclick="box(2)">
-			<img src="img/slide2.jpg" alt="" id="box2" class="box" onclick="box(3)">
-			<img src="img/slide3.jpg" alt="" id="box3" class="box" onclick="box(4)">
-		</div>
-	</div>
-</body>
-<script src='js/script.js' type='text/javascript'></script>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src='js/script.js' type='text/javascript'></script>
 </html>
