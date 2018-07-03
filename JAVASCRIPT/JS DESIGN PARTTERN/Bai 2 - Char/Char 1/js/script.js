@@ -14,13 +14,13 @@ window.onload = function () {
 		function drawData() {
 			ctx.font = "15px Time News Roman";
 			ctx.fillStyle = "#000000";
-			ctx.fillText(data_1, 100, 120);
-			ctx.fillText(data_2, 450, 100);
+			ctx.fillText(data_1, 100, 120); //Vẽ chữ data_1
+			ctx.fillText(data_2, 450, 100); //Vẽ chữ data_2
 		}
 		//Vẽ đường dẫn
 		function drawPath_1(ctx, startX1, startY1, endX1, endY1, startX2, startY2, endX2, endY2, startX3, startY3, endX3, endY3, color) {
 			ctx.fillStyle = color;
-			ctx.beginPath();
+			ctx.beginPath(); //Bắt đầu nét vẽ
 			ctx.moveTo(startX1, startY1); //Điểm bắt đầu vẽ 1
 			ctx.lineTo(endX1, endY1); //Điểm kết thúc vẽ 1
 			ctx.lineTo(startX2, startY2); //Điểm bắt đầu vẽ 2
@@ -33,7 +33,7 @@ window.onload = function () {
 		//Vẽ đường dẫn
 		function drawPath_2(ctx, startX1, startY1, endX1, endY1, startX2, startY2, endX2, endY2, startX3, startY3, endX3, endY3, color) {
 			ctx.fillStyle = color;
-			ctx.beginPath();
+			ctx.beginPath(); //Bắt đầu nét vẽ
 			ctx.moveTo(startX1, startY1); //Điểm bắt đầu vẽ 1
 			ctx.lineTo(endX1, endY1); //Điểm kết thúc vẽ 1
 			ctx.lineTo(startX2, startY2); //Điểm bắt đầu vẽ 2
@@ -43,7 +43,7 @@ window.onload = function () {
 			ctx.lineTo(startX1, startY1);
 			ctx.fill();
 		}
-
+		//Vẽ tên Char
 		function nameChar_1() {
 			ctx.font = "15px Time News Roman";
 			ctx.fillStyle = "#0087F9";
@@ -54,38 +54,39 @@ window.onload = function () {
 		drawPath_2(ctx, 400, 155, 450, 105, 560, 105, 560, 107, 451, 107, 400, 157, '#FF0000');
 		nameChar_1();
 		drawData();
+
 	}
 	//Vẽ biểu đồ
 	var myChar = function () {
 		function drawEllipse(ctx, centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle, color) {
 			ctx.fillStyle = color;
-			ctx.beginPath();
-			ctx.moveTo(centerX, centerY);
-			ctx.ellipse(centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle);
-			ctx.closePath();
+			ctx.beginPath(); //Bắt đầu nét vẽ
+			ctx.moveTo(centerX, centerY); //Điểm bắt đầu vẽ
+			ctx.ellipse(centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle); //Vẽ Elip
+			ctx.closePath(); //Kết thúc nét vẽ
 			ctx.fill();
 		}
 
 		function drawTriangle(ctx, startX1, startY1, endX1, endY1, endY2, color) {
 			ctx.fillStyle = color;
-			ctx.beginPath();
-			ctx.moveTo(startX1, startY1);
-			ctx.lineTo(endX1, endY1);
-			ctx.lineTo(endX1, endY2);
-			ctx.closePath();
+			ctx.beginPath(); //Bắt đầu nét vẽ
+			ctx.moveTo(startX1, startY1); //Điểm bắt đầu vẽ
+			ctx.lineTo(endX1, endY1); //Điểm kết thúc vẽ
+			ctx.lineTo(endX1, endY2); //Điểm kết thúc vẽ
+			ctx.closePath(); //Kết thúc nét vẽ
 			ctx.fill();
 		}
-
+		//Vẽ phần trụ phía dưới
 		function drawEllipseCylinder() {
 			ctx.fillStyle = "#4527A5";
-			ctx.beginPath();
+			ctx.beginPath(); //Bắt đầu nét vẽ
 			ctx.moveTo(150, 200);
 			ctx.lineTo(150, 250);
-			ctx.ellipse(300, 200, 70, 150, -(90 * Math.PI / 180), 1.5 * Math.PI, 0.5 * Math.PI, true);
+			ctx.ellipse(300, 200, 70, 150, -(90 * Math.PI / 180), 1.5 * Math.PI, 0.5 * Math.PI, true); //Vẽ 1/2 Elip
 			ctx.ellipse(300, 250, 70, 150, 90 * Math.PI / 180, 1.5 * Math.PI, 0.5 * Math.PI);
 			ctx.fill();
 		}
-
+		//Vẽ phần bị cắt trong Elip
 		function drawPieSlice(ctx, centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle, color) {
 			ctx.fillStyle = color;
 			ctx.beginPath();
@@ -94,13 +95,13 @@ window.onload = function () {
 			ctx.closePath();
 			ctx.fill();
 		}
-
+		//Vẽ phần trụ bị cắt trong Elip
 		function drawLinePie(ctx, startX1, startY1, endX1, endY1, color) {
 			ctx.fillStyle = color;
-			ctx.beginPath();
-			ctx.moveTo(startX1, startY1);
+			ctx.beginPath(); //Bắt đầu nét vẽ
+			ctx.moveTo(startX1, startY1); //Điểm bắt đầu vẽ
 			ctx.lineTo(startX1, endY1);
-			ctx.lineTo(endX1, endY1);
+			ctx.lineTo(endX1, endY1); //Điểm kết thúc vẽ
 			ctx.lineTo(endX1, startY1);
 			ctx.fill();
 		}

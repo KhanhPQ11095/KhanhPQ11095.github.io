@@ -17,14 +17,13 @@ window.onload = function () {
 	var myChar = function () {
 		function drawCircle(ctx, centerX, centerY, radius, startAngle, endAngle, color) {
 			ctx.fillStyle = color;
-			ctx.beginPath();
-			ctx.moveTo(centerX, centerY);
+			ctx.beginPath(); //Bắt đầu nét vẽ
+			ctx.moveTo(centerX, centerY); //Điểm bắt đầu vẽ
 			ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-			ctx.closePath();
+			ctx.closePath(); //Kết thúc nét vẽ
 			ctx.fill();
 		}
 
-		
 		drawCircle(ctx, 200, 200, 150, Math.PI * 1.5, Math.PI * 1.7, '#4267B1');
 		drawCircle(ctx, 200, 200, 150, Math.PI * 1.7, Math.PI * 2.1, '#DB3D26');
 		drawCircle(ctx, 200, 200, 150, Math.PI * 2.1, Math.PI * 2.3, '#F8991D');
@@ -32,7 +31,6 @@ window.onload = function () {
 		drawCircle(ctx, 200, 200, 80, Math.PI * 0, Math.PI * 4, '#FFFFFF');
 		
 	}
-
 	//Vẽ chú thích
 	var myNote = function () {
 		function drawNote() {
@@ -52,8 +50,8 @@ window.onload = function () {
 		}
 
 		drawNote();
-	}
 
+	}
 	//Vẽ Data
 	var myData = function () {
 		function drawData() {

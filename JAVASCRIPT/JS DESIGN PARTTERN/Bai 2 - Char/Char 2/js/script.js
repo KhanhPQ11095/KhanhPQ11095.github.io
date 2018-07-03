@@ -19,7 +19,7 @@ window.onload = function () {
         //Vẽ khung biểu đồ
         function numChar(ctx, startX1, startY1, endX1, endY1, startX2, startY2, endX2, endY2, color) {
             ctx.strokeStyle = color;
-            ctx.beginPath();
+            ctx.beginPath(); //Bắt đầu nét vẽ
             ctx.moveTo(startX1, startY1); //Điểm bắt đầu vẽ 1
             ctx.lineTo(endX1, endY1); //Điểm kết thúc vẽ 1
             ctx.lineTo(startX2, startY2); //Điểm bắt đầu vẽ 2
@@ -28,7 +28,7 @@ window.onload = function () {
         }
         //Vẽ đường tăng trưởng
         function drawLineChar(ctx, startX1, startY1, loc1, loc2, loc3, loc4, loc5, loc6) {
-            ctx.beginPath();
+            ctx.beginPath(); //Bắt đầu nét vẽ
             ctx.moveTo(startX1, startY1); //Điểm bắt đầu
             ctx.bezierCurveTo(loc1, loc2, loc3, loc4, loc5, loc6); //Vẽ qua các điểm
             ctx.lineWidth = 5; //Độ đậm của nét vẽ
@@ -56,7 +56,7 @@ window.onload = function () {
             //Vẽ chữ
             ctx.fillText(data_1, 150, 30);
             ctx.fillText(nameChar, 140, 380);
-            ctx.rotate(-90 * Math.PI / 180);
+            ctx.rotate(-90 * Math.PI / 180); //Xoay chữ 90 độ
             ctx.fillText(data_2, -250, 50);
         }
 
