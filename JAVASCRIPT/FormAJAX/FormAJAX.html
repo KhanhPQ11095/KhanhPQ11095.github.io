@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="author" content="KhanhPQ">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/styleBD.css">
-		<title>Form AJAX - Javascript</title>
-	</head>
-	<body>
-		<h1>Thông Tin</h1>
-		<div class="calendar">
-		<form action="" id="myForm" method="post" name="myForm" onsubmit="return (validateForm())">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="KhanhPQ">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styleBD.css">
+	<title>Form AJAX - Javascript</title>
+</head>
+
+<body>
+	<h1>Thông Tin</h1>
+	<div class="calendar">
+		<form id="myForm" method="post" name="myForm" onsubmit="return (validateForm())">
 			<label class="h4">Tài Khoản :</label>
 			<input type="text" class="form_control" id="Username" name="Username" placeholder="Nhập Tên Tài Khoản">
 			<div id="show-username"></div>
@@ -23,19 +25,23 @@
 			<label class="h4">Email :</label>
 			<input type="text" class="form_control" id="Email" name="Email" placeholder="Nhập Tài Khoản Email">
 			<div id="show-email"></div>
-			
-				<label class="h4">Birthday :</label>
-				<input type="text" class="form_control" id="Birthday" name="Birthday" placeholder="dd/mm/yyyy" disabled>
-				<img onclick="showCalendar()" src="img/calendar.png" alt="">
-				<div id="show-birthday">
-				</div>
-			
+
+			<label class="h4">Birthday :</label>
+			<input type="text" class="form_control" id="Birthday" name="Birthday" placeholder="dd/mm/yyyy" disabled>
+			<img onclick="showCalendar()" src="img/calendar.png" alt="">
+			<div id="show-birthday">
+			</div>
+
 			<input type="submit" id="btn_submit" value="Submit" onclick="sendAjax()">
 		</form>
-		<table  onclick="calendar()" id="calendar">
+		<table onclick="calendar()" id="calendar">
 			<tr>
-				<th><button onclick="changeYear(-1)">&#10094;&#10094;</button></th>
-				<th><button onclick="changeMonth(-1)">&#10094;</button></th>
+				<th>
+					<button onclick="changeYear(-1)">&#10094;&#10094;</button>
+				</th>
+				<th>
+					<button onclick="changeMonth(-1)">&#10094;</button>
+				</th>
 				<th colspan="2">
 					<select onchange="changeDate()" name="month" id="month">
 					</select>
@@ -44,8 +50,12 @@
 					<select onchange="changeDate()" name="year" id="year">
 					</select>
 				</th>
-				<th><button onclick="changeMonth(1)">&#10095;</button></th>
-				<th><button onclick="changeYear(1)">&#10095;&#10095;</button></th>
+				<th>
+					<button onclick="changeMonth(1)">&#10095;</button>
+				</th>
+				<th>
+					<button onclick="changeYear(1)">&#10095;&#10095;</button>
+				</th>
 			</tr>
 			<tr id="date">
 				<td>Chủ Nhật</td>
@@ -57,9 +67,9 @@
 				<td>Thứ Bye</td>
 			</tr>
 		</table>
-		</div>
-	</body>
-	<script src="js/script.js" type="text/javascript"></script>
-	<script src="js/AJAX.js" type="text/javascript"></script>
-	<script src="js/scriptBD.js" type="text/javascript"></script>
+	</div>
+</body>
+<script src="js/script.js" type="text/javascript"></script>
+<script src="js/AJAX.js" type="text/javascript"></script>
+<script src="js/scriptBD.js" type="text/javascript"></script>
 </html>

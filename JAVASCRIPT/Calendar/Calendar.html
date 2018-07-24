@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
 	<title>Calendar - Javascript</title>
 </head>
+
 <body>
 	<div class="calendar">
-	<form action="#">
-		<div class="form-calendar">
-			<input id="nhapNgayThang" type="text" placeholder="dd/mm/yyyy" >
-		    <img onclick="showCalendar()" src="img/calendar.png" alt="">
-			<div class="button"><button onclick ="inputDate()" >Tìm</button></div>
-		</div>
-	</form>
-	<table  onclick="calendar()" id="calendar">
-		<tr>
-			<th><button onclick="changeYear(-1)">&#10094;&#10094;</button></th>
-			<th><button onclick="changeMonth(-1)">&#10094;</button></th>
-			<th colspan="2">
-				<select onchange="changeDate()" name="month" id="month">
-				</select>
-			</th>
-			<th>
-				<select onchange="changeDate()" name="year" id="year">
-				</select>
-			</th>
-			<th><button onclick="changeMonth(1)">&#10095;</button></th>
-			<th><button onclick="changeYear(1)">&#10095;&#10095;</button></th>
-		</tr>
-		<tr id="date">
-			<td>Chủ Nhật</td>
-			<td>Thứ High</td>
-			<td>Thứ Bar</td>
-			<td>Thứ Porn</td>
-			<td>Thứ Name</td>
-			<td>Thứ Sauce</td>
-			<td>Thứ Bye</td>
-		</tr>
-	</table>
-</div>
+		<form action="#">
+			<div class="form-calendar">
+				<input id="nhapNgayThang" type="text" placeholder="dd/mm/yyyy">
+				<img onclick="showCalendar()" src="img/calendar.png" alt="">
+				<div class="button">
+					<button onclick="inputDate()">Tìm</button>
+				</div>
+			</div>
+		</form>
+		<table onclick="calendar()" id="calendar">
+			<tr>
+				<th>
+					<button onclick="changeYear(-1)">&#10094;&#10094;</button>
+				</th>
+				<th>
+					<button onclick="changeMonth(-1)">&#10094;</button>
+				</th>
+				<th colspan="2">
+					<select onchange="changeDate()" name="month" id="month">
+					</select>
+				</th>
+				<th>
+					<select onchange="changeDate()" name="year" id="year">
+					</select>
+				</th>
+				<th>
+					<button onclick="changeMonth(1)">&#10095;</button>
+				</th>
+				<th>
+					<button onclick="changeYear(1)">&#10095;&#10095;</button>
+				</th>
+			</tr>
+			<tr id="date">
+				<td>Chủ Nhật</td>
+				<td>Thứ High</td>
+				<td>Thứ Bar</td>
+				<td>Thứ Porn</td>
+				<td>Thứ Name</td>
+				<td>Thứ Sauce</td>
+				<td>Thứ Bye</td>
+			</tr>
+		</table>
+	</div>
 	<script src="js/script.js"></script>
 </body>
+
 </html>

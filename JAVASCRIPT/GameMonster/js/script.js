@@ -1,11 +1,13 @@
 //Draw Canvas Menu
 var canvasMenu = document.getElementById('menu');
 var ctxMenu = canvasMenu.getContext('2d');
-
+canvasMenu.width = 450;
+canvasMenu.height = 100;
 //Draw Canvas Main
 var canvasMain = document.getElementById('main');
 var ctxMain = canvasMain.getContext('2d');
-
+canvasMain.width = 450;
+canvasMain.height = 500;
 //Random Location Monster
     var monster1 = new Monster(canvasMain.width, canvasMain.height, 1, 1, 120, 120); //Location Monster 1
     var monster2 = new Monster(canvasMain.width, canvasMain.height, 1, 1, 0, 0); //Location Monster 2
