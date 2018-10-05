@@ -1,14 +1,18 @@
 window.onload = function () {
+
 	//Lấy thẻ HTML Canvas
 	var myCanvas = document.getElementById("myCanvas");
 	var ctx = myCanvas.getContext("2d");
+
 	//Thiết lập khung Canvas
 	myCanvas.width = 600;
 	myCanvas.height = 400;
+
 	//Nội dung Canvas
 	var data_1 = "80% ĐÃ ĐẠT";
 	var data_2 = "20% CHƯA ĐẠT";
 	var nameChar = "BIỂU ĐỒ TỔNG QUAN KHUNG NĂNG LỰC";
+
 	//Function vẽ Nội dung
 	var myData = function () {
 		function drawData() {
@@ -17,6 +21,7 @@ window.onload = function () {
 			ctx.fillText(data_1, 100, 120); //Vẽ chữ data_1
 			ctx.fillText(data_2, 450, 100); //Vẽ chữ data_2
 		}
+
 		//Vẽ đường dẫn
 		function drawPath_1(ctx, startX1, startY1, endX1, endY1, startX2, startY2, endX2, endY2, startX3, startY3, endX3, endY3, color) {
 			ctx.fillStyle = color;
@@ -30,6 +35,7 @@ window.onload = function () {
 			ctx.lineTo(startX1, startY1);
 			ctx.fill();
 		}
+
 		//Vẽ đường dẫn
 		function drawPath_2(ctx, startX1, startY1, endX1, endY1, startX2, startY2, endX2, endY2, startX3, startY3, endX3, endY3, color) {
 			ctx.fillStyle = color;
@@ -43,6 +49,7 @@ window.onload = function () {
 			ctx.lineTo(startX1, startY1);
 			ctx.fill();
 		}
+
 		//Vẽ tên Char
 		function nameChar_1() {
 			ctx.font = "15px Time News Roman";
@@ -56,6 +63,7 @@ window.onload = function () {
 		drawData();
 
 	}
+
 	//Vẽ biểu đồ
 	var myChar = function () {
 		function drawEllipse(ctx, centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle, color) {
@@ -67,6 +75,7 @@ window.onload = function () {
 			ctx.fill();
 		}
 
+		//Vẽ tam giác
 		function drawTriangle(ctx, startX1, startY1, endX1, endY1, endY2, color) {
 			ctx.fillStyle = color;
 			ctx.beginPath(); //Bắt đầu nét vẽ
@@ -76,6 +85,7 @@ window.onload = function () {
 			ctx.closePath(); //Kết thúc nét vẽ
 			ctx.fill();
 		}
+
 		//Vẽ phần trụ phía dưới
 		function drawEllipseCylinder() {
 			ctx.fillStyle = "#4527A5";
@@ -86,6 +96,7 @@ window.onload = function () {
 			ctx.ellipse(300, 250, 70, 150, 90 * Math.PI / 180, 1.5 * Math.PI, 0.5 * Math.PI);
 			ctx.fill();
 		}
+
 		//Vẽ phần bị cắt trong Elip
 		function drawPieSlice(ctx, centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle, color) {
 			ctx.fillStyle = color;
@@ -95,6 +106,7 @@ window.onload = function () {
 			ctx.closePath();
 			ctx.fill();
 		}
+
 		//Vẽ phần trụ bị cắt trong Elip
 		function drawLinePie(ctx, startX1, startY1, endX1, endY1, color) {
 			ctx.fillStyle = color;

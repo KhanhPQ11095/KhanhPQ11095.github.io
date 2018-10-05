@@ -1,6 +1,8 @@
 window.onload = function() {
 	createTable();
 }
+
+// Hiện Lịch
 function showCalendar() {
 	getDay();
 	getMonth();
@@ -13,7 +15,8 @@ function showCalendar() {
 		getTable.style.display = 'none';
 	}
 }
-// tạo list tháng
+
+// Tạo list tháng
 function getMonth() {
 	var date = new Date();
 	var month = document.getElementById('month');
@@ -28,7 +31,8 @@ function getMonth() {
 	}
 	month.options[date.getMonth()].selected = 'selected';
 }
-// lấy ngày tháng
+
+// Lấy ngày tháng
 function changeDate() {
 	var month = document.getElementById('month');
 	var year = document.getElementById('year');
@@ -36,7 +40,8 @@ function changeDate() {
 	var nam = getYearSelected(year);
 	change(thang, nam)
 }
-// tìm ngày đầu tiên ứng với tháng và năm truyền vào, sau đó xuất list ngày.
+
+// Tìm ngày đầu tiên ứng với tháng và năm truyền vào, sau đó xuất list ngày.
 function change(thang, nam) {
 	resetTable();
 	var i = 1;
@@ -77,14 +82,16 @@ function change(thang, nam) {
 		}
 	}
 }
-// kiểm tra tháng 30 ngày
+
+// Kiểm tra tháng 30 ngày
 function checkMonth30(thang) {
 	if ((thang+1) == 4 || (thang+1) == 6 || (thang+1) == 9 || (thang+1) == 11){
 		return 1;
 	}
 	return 0;
 }
-// kiểm tra tháng 31 ngày
+
+// Kiểm tra tháng 31 ngày
 function checkMonth31(thang) {
 	if ((thang+1) == 1 || (thang+1) == 3 || (thang+1) == 5 || (thang+1) == 7 || 
 		(thang+1) == 8 || (thang+1) == 10 || (thang+1) == 12){
@@ -93,7 +100,7 @@ function checkMonth31(thang) {
 	return 0;
 }
 
-// add event cho các ô ngày, ẩn các ô thừa
+// Thêm sự kiện cho các ô ngày, ẩn các ô thừa
 function addEvent(viTri, thang, nam, songay) {
 	var td = document.getElementsByTagName('td');
 	var input = document.getElementById('nhapNgayThang')
@@ -104,14 +111,16 @@ function addEvent(viTri, thang, nam, songay) {
 		td[songay+7].style.display  = 'none'
 	}
 }
-//reset bang
+
+// Tạo lại bảng
 function resetTable() {
 	var td = document.querySelectorAll('td')
 	for(i = 1; i < 40; i++){
 		td[i+6].innerHTML = '';
 	}
 }
-// tạo bang
+
+// Tạo bảng
 function createTable() {
 	var table = document.getElementById('calendar');
 	var tr = document.createElement('tr');
@@ -130,7 +139,8 @@ function createTable() {
 		}
 	}
 }
-// lấy tháng đang hiển thị
+
+// Lấy tháng đang hiển thị
 function getMonthSelected(month) {
 	var thang = 0;
 	for (thang = 0; thang < 12; thang++){
@@ -140,7 +150,8 @@ function getMonthSelected(month) {
 	}
 	return -1;
 }
-// lấy năm đang hiển thị
+
+// Lấy năm đang hiển thị
 function getYearSelected(year) {
 	var date = new Date();
 	var nam = date.getFullYear();
@@ -151,7 +162,8 @@ function getYearSelected(year) {
 	}
 	return 0;
 }
-// lấy ngày đang hiển thị
+
+// Lấy ngày đang hiển thị
 function getDay() {
 	var date = new Date();
 	var thang = date.getMonth();
@@ -161,15 +173,18 @@ function getDay() {
 	var date1 = new Date();
 	td[firstDayInMonth.getDay()+6+date.getDate()].style.backgroundColor = '#BCBCBC';
 }
-// kiểm tra có phải tháng năm hiện tại ko để tô background
+
+// Kiểm tra có phải tháng năm hiện tại ko để tô background
 function calendar() {
-	// năm tháng lấy trên selec
+
+	// Năm tháng lấy trên bảng chọn
 	var month = document.getElementById('month');
 	var year = document.getElementById('year');
 	var thang = getMonthSelected(month);
 	var nam = getYearSelected(year);
 	var date = new Date();
-	// tháng ngày lấy theo hiện tai
+
+	// Tháng ngày lấy theo hiện tại
 	var thangHienTai = date.getMonth();
 	var firstDayInMonth = new Date(nam, thangHienTai, 1);
 	var td =document.getElementsByTagName('td');
@@ -180,7 +195,8 @@ function calendar() {
 		td[firstDayInMonth.getDay()+6+date.getDate()].style.backgroundColor = '#FFFFFF'
 	}	
 }
-// tạo list year
+
+// Tạo list year
 function getYear() {
 	var date = new Date();
 	var year = document.getElementById('year');
@@ -196,7 +212,8 @@ function getYear() {
 	}
 	year.options[yearNow-1900].selected = 'selected';
 }
-// đổi ngày theo tháng bằng button 
+
+// Đổi ngày theo tháng bằng button 
 function changeMonth(mucdo) {
 	var month = document.getElementById('month');
 	var year = document.getElementById('year');
@@ -215,7 +232,8 @@ function changeMonth(mucdo) {
 	change((thang + mucdo),nam);
 	month.options[thang + mucdo].selected = 'selected';
 }
-// đổi ngày theo năm bằng button
+
+// Đổi ngày theo năm bằng button
 function changeYear(mucdo) {
 	var month = document.getElementById('month');
 	var year = document.getElementById('year');
@@ -235,7 +253,8 @@ function changeYear(mucdo) {
 	change(thang,(parseNam+mucdo));
 	year.options[parseNam-1900+mucdo].selected = 'selected';
 }
-// khi nhập sẽ thay đổi value trên calendar
+
+// Khi nhập sẽ thay đổi giá trị trên lịch
 function inputDate() {
 	var month = document.getElementById('month');
 	var year = document.getElementById('year');
