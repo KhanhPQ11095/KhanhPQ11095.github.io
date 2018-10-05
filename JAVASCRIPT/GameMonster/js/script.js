@@ -3,11 +3,13 @@ var canvasMenu = document.getElementById('menu');
 var ctxMenu = canvasMenu.getContext('2d');
 canvasMenu.width = 450;
 canvasMenu.height = 100;
+
 //Draw Canvas Main
 var canvasMain = document.getElementById('main');
 var ctxMain = canvasMain.getContext('2d');
 canvasMain.width = 450;
 canvasMain.height = 500;
+
 //Random Location Monster
     var monster1 = new Monster(canvasMain.width, canvasMain.height, 1, 1, 120, 120); //Location Monster 1
     var monster2 = new Monster(canvasMain.width, canvasMain.height, 1, 1, 0, 0); //Location Monster 2
@@ -128,8 +130,8 @@ Monster.prototype.monsterStatus = function (e) {
         this.transparen = false;
         blood.bx = this.cx;
         blood.by = this.cy;  
-        slMonster--;
-        if (slMonster == 0){
+        qMonster--;
+        if (qMonster == 0){
             score(10);
             randomMonster();
             return;
@@ -160,24 +162,24 @@ function update() {
     if (startStatus) {
         
         let countMonster = 0;
-        for (countMonster = 0; countMonster < soLuongMonster; countMonster++) {
+        for (countMonster = 0; countMonster < quantityMonster; countMonster++) {
             if (monster0[countMonster].transparen) {
                 monster0[countMonster].checkCollision();
                 monster0[countMonster].clearMonster();
             }
         }
-        drawMonster(soLuongMonster);
+        drawMonster(quantityMonster);
         checkHeart();
     }
 }
 
 //Once Move Will Draw Again
-function drawMonster(soLuongMonster) {
+function drawMonster(quantityMonster) {
     showMain();
     if (countClickMonster > 0){
         ctxMain.drawImage(imgBlood, blood.bx+25, blood.by+25, 100 , 100);
     }
-    for (countMonster = 0; countMonster < soLuongMonster; countMonster++) {
+    for (countMonster = 0; countMonster < quantityMonster; countMonster++) {
         if (monster0[countMonster].transparen) {
             monster0[countMonster].draw();
             monster0[countMonster].move();
@@ -238,7 +240,7 @@ function killAll() {
 
 function play() {
     let count = 0;
-    for (countMonster = 0; countMonster < soLuongMonster; countMonster++) {
+    for (countMonster = 0; countMonster < quantityMonster; countMonster++) {
         if ( monster0[countMonster].transparen){
             monster0[countMonster].transparen = false;
             count ++;
@@ -249,6 +251,7 @@ function play() {
     randomMonster();
     update();
 }
+
 //Confimr Object Location
 function mouse() {
     let preX;
@@ -260,43 +263,43 @@ function mouse() {
 }
 
 //Score
-var diem = 0;
+var poin = 0;
 function score(number) {
     if(number > 0){
         countClickMonster++;
     }
-    if (diem < 50 && slMonster == 0) {
-        slMonster = 1;
+    if (poin < 50 && qMonster == 0) {
+        qMonster = 1;
     }
-    else if (diem >= 50 && diem < 150 && slMonster == 0) {
-        slMonster = 2;
+    else if (poin >= 50 && poin < 150 && qMonster == 0) {
+        qMonster = 2;
     }
-    else if (diem >= 150 && diem < 250 && slMonster ==0) {
-    	slMonster = 3;
+    else if (poin >= 150 && poin < 250 && qMonster ==0) {
+    	qMonster = 3;
     }
-    else if (diem > 250 && slMonster == 0) {
-    	slMonster = 3;
+    else if (poin > 250 && qMonster == 0) {
+    	qMonster = 3;
     }
-    diem += number;
+    poin += number;
     ctxMenu.beginPath();
     ctxMenu.clearRect(100, 5, 100, 30);
-    ctxMenu.fillText(diem, 100, 30);
+    ctxMenu.fillText(poin, 100, 30);
     ctxMenu.closePath();
-    highCore(diem);
-    slmonster0(level);
+    highCore(poin);
+    qmonster0(level);
 }
 
 //High Core
-function highCore(diem) {
+function highCore(poin) {
     let hiCore = 0;
     if (localStorage.myScore == undefined){
         localStorage.myScore = 0;
         hiCore = localStorage.myScore;
     } else{
         hiCore = localStorage.myScore;
-        if (diem >= hiCore){
-            localStorage.myScore = diem;
-            hiCore = diem;
+        if (poin >= hiCore){
+            localStorage.myScore = poin;
+            hiCore = poin;
         }
     }
     ctxMenu.clearRect(350, 5, 100, 30);
@@ -309,13 +312,14 @@ function pausePlay(startStatus) {
         setTimeout('update()');
     }
 }
+
 //Quantity Monsters
-var soLuongMonster = 9
-var slMonster = 1;
+var quantityMonster = 9
+var qMonster = 1;
 function randomMonster() {
-    let sl = 0;
+    let q = 0;
     let tt = -1;
-    for (sl = 0; sl < slMonster; sl++){
+    for (q = 0; q < qMonster; q++){
         
         do{
             var randomMonst = random();
@@ -329,16 +333,17 @@ function randomMonster() {
 }
 
 function random(){
-    let randomMonst = Math.floor(Math.random() * (soLuongMonster));
+    let randomMonst = Math.floor(Math.random() * (quantityMonster));
     return randomMonst;
 }
 
-function slmonster0(level) {
+function qmonster0(level) {
 	level++;
-	level = slMonster;
+	level = qMonster;
     ctxMenu.clearRect(185, 65, 65, 30);
 	ctxMenu.fillText(level, 185, 90);
 }
+
 //Heart
 var countHeart = 5;
 function checkHeart() {
@@ -376,6 +381,7 @@ function drawHeart() {
     ctxMenu.drawImage(imgHeart, 190, 40, 25, 25);
     ctxMenu.drawImage(imgHeart, 220, 40, 25, 25);
 }
+
 //Clear Head
 function clearHeart(hx, hy) {
     ctxMenu.clearRect( hx, hy, 25, 25);
@@ -388,7 +394,7 @@ window.onload = function main() {
     let countMonster = 0;
     showMenu();
     showMain(); 
-    slmonster0();
+    qmonster0();
     mouseClickMenu('boom', 248, 300, 50, 95);
     mouseClickMenu('pause', 310, 368, 50, 90);
     mouseClickMenu('reload', 380, 435, 50, 95);
@@ -397,4 +403,3 @@ window.onload = function main() {
     pausePlay(startStatus);
     drawHeart();
 }
-
