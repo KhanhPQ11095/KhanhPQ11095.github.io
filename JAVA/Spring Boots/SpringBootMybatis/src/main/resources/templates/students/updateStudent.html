@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layouts/head :: head">
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<header xmlns:th="http://www.thymeleaf.org" th:replace="layouts/header2 :: header2" >
+		
+		</header>
+		<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Students Data</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Update 
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body" style="width:50%; height: 50%; margin: auto;">
+							<p th:utext="${message}">..!..</p>
+		<form th:action="@{/form-update}" th:object="${student}" method="POST">
+		<th:block th:each="studentInfo : ${studentInfos}">
+								<div class="form-group">
+			<label for="studentid">Student ID</label>
+			<input class="form-control" type="text" id="studentid" name="studentId" th:value="${studentInfo.student.studentId}" readonly="readonly"/>
+			</div>
+								<div class="form-group">
+			<label for="studentname">Student Name</label>
+			
+			<input class="form-control" type="text" id="studentname" name="studentName" th:value="${studentInfo.student.studentName}" autofocus="autofocus" placeholder="Student Name" required="text" />
+			
+			</div>
+								<div class="form-group">
+			<label for="studentcode">Student Code</label>
+			<input class="form-control" type="text" id="studentcode" name="studentCode" th:value="${studentInfo.student.studentCode}" placeholder="Student Code" required="required" />
+			</div>
+								<div class="form-group">
+			<label for="address">Address</label>
+			<input class="form-control" type="text" id="address" name="address" th:value="${studentInfo.address}" placeholder="Address" required="required" />
+			</div>
+								<div class="form-group">
+			<label for="averagescore">Average Score</label>
+			<input class="form-control" type="number" id="averagescore" name="averageScore" th:value="${studentInfo.averageScore}" placeholder="Average Score" required="required" />
+			</div>
+								<div class="form-group">
+			<label for="dateofbirth">Date Of Birth</label>
+			<input class="form-control" type="date" id="dateofbirth" name="dateOfBirth" th:value="${studentInfo.dateOfBirth}" required="required" />
+			</div>
+			</th:block>
+			<button class="btn btn-lg btn-success btn-block" type="submit" name="update" value="Update">Update</button>
+		</form>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		
+
+	</div>
+	<footer xmlns:th="http://www.thymeleaf.org" th:replace="layouts/footer :: footer" ></footer>
+</body>
+</html>

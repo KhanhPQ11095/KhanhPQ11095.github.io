@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="khanhpq.SpringBootMybatis.mapper.StudentInfoStudentMapper">
+	
+	<insert id="insertStudent" parameterType="StudentInfoStudent">
+		INSERT INTO STUDENT (STUDENT_ID, STUDENT_NAME, STUDENT_CODE)
+		VALUES (#{studentId}, #{studentName}, #{studentCode});
+	</insert>
+	
+	<insert id="insertStudentInfo" parameterType="StudentInfoStudent" >
+		INSERT INTO STUDENT_INFO (INFO_ID, STUDENT_ID, ADDRESS, AVERAGE_SCORE, DATE_OF_BIRTH)
+		VALUES (NULL, #{studentId}, #{address}, #{averageScore}, #{dateOfBirth});	
+	</insert>
+
+	<select id="getMaxId" resultType="int">
+		SELECT MAX(STUDENT.STUDENT_ID) FROM STUDENT;
+	</select>
+	
+	<update id="updateStudentInfo" parameterType="StudentInfoStudent">
+		UPDATE STUDENT, STUDENT_INFO
+		SET STUDENT.STUDENT_NAME = #{studentName},
+			STUDENT.STUDENT_CODE = #{studentCode},
+    		STUDENT_INFO.ADDRESS = #{address},
+    		STUDENT_INFO.AVERAGE_SCORE = #{averageScore},
+    		STUDENT_INFO.DATE_OF_BIRTH = #{dateOfBirth}
+		WHERE STUDENT.STUDENT_ID = STUDENT_INFO.STUDENT_ID
+		AND STUDENT.STUDENT_ID = #{studentId};
+	</update>
+	
+	<resultMap id="resultStudentInfoStudent" type="StudentInfoStudent">
+		<id property="infoId" column="info_id" />
+		<id property="studentId" column="student_id" />
+		<result property="address" column="address" />
+		<result property="averageScore" column="average_score" />
+		<result property="dateOfBirth" column="date_of_birth" />
+		<result property="studentName" column="student_name" />
+		<result property="studentCode" column="student_code" />
+	</resultMap>
+</mapper>

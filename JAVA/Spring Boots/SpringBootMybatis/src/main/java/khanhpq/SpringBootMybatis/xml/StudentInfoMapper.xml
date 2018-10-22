@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="khanhpq.SpringBootMybatis.mapper.StudentInfoMapper">
+
+	<resultMap id="resultStudentInfo" type="StudentInfo">
+		<id property="infoId" column="info_id" />
+		<result property="address" column="address" />
+		<result property="averageScore" column="average_score" />
+		<result property="dateOfBirth" column="date_of_birth" />
+		<result property="limit" column="" />
+		<result property="offset" column="" />
+		<association property="student" resultMap="resultStudent" />
+	</resultMap>
+	
+	<resultMap id="resultStudent" type="Student">
+		<id property="studentId" column="student_id" />
+		<result property="studentName" column="student_name" />
+		<result property="studentCode" column="student_code" />
+	</resultMap>
+	
+	<select id="selectAllStudentInfoStudent" resultMap="resultStudentInfo">
+		SELECT
+			S.STUDENT_ID, S.STUDENT_NAME, S.STUDENT_CODE,
+			SI.INFO_ID, SI.ADDRESS, SI.AVERAGE_SCORE, SI.DATE_OF_BIRTH
+		FROM STUDENT S INNER JOIN STUDENT_INFO SI ON S.STUDENT_ID = SI.STUDENT_ID;
+	</select>
+	
+	<select id="selectStudentInfoById" resultMap="resultStudentInfo">
+		SELECT
+			S.STUDENT_ID, S.STUDENT_NAME, S.STUDENT_CODE,
+			SI.INFO_ID, SI.ADDRESS, SI.AVERAGE_SCORE, SI.DATE_OF_BIRTH
+		FROM STUDENT S INNER JOIN STUDENT_INFO SI ON S.STUDENT_ID = SI.STUDENT_ID
+		WHERE S.STUDENT_ID = #{studentId};
+	</select>
+	
+	<select id="selectStudentInfoByName" resultMap="resultStudentInfo">
+		SELECT
+			S.STUDENT_ID, S.STUDENT_NAME, S.STUDENT_CODE,
+			SI.INFO_ID, SI.ADDRESS, SI.AVERAGE_SCORE, SI.DATE_OF_BIRTH
+		FROM STUDENT S INNER JOIN STUDENT_INFO SI ON S.STUDENT_ID = SI.STUDENT_ID
+		WHERE S.STUDENT_ID = #{studentName}
+        		OR S.STUDENT_NAME LIKE CONCAT('%', #{studentName}, '%');
+	</select>
+	
+	<select id="selectStudentPaging" resultMap="resultStudentInfo">
+		SELECT
+			S.STUDENT_ID, S.STUDENT_NAME, S.STUDENT_CODE,
+			SI.INFO_ID, SI.ADDRESS, SI.AVERAGE_SCORE, SI.DATE_OF_BIRTH
+		FROM
+			STUDENT S INNER JOIN STUDENT_INFO SI
+			ON S.STUDENT_ID = SI.STUDENT_ID
+		LIMIT #{contentNum} OFFSET #{pageNum};
+	</select>
+	
+	<select id="selectStudentCount" resultType="int">
+		SELECT COUNT(*)
+		FROM STUDENT_INFO;
+	</select>
+	
+</mapper>

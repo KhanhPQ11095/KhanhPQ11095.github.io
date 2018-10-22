@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layouts/head :: head">
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<header xmlns:th="http://www.thymeleaf.org" th:replace="layouts/header2 :: header2" >
+		
+		</header>
+		<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Students Data</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Insert 
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body" style="width:50%; height: 50%; margin: auto;">
+							<p th:utext="${message}">..!..</p>
+							<form method="POST" id="insertForm" role="form" th:action="@{/form-insert}" th:object="${student}">
+								<span id="showError"></span>
+								<div class="form-group">
+                                            <label for="studentname">Student Name</label>
+                                            <input class="form-control" type="text" id="studentname" name="studentName" autofocus="required" required="text" placeholder="Student Name" />
+								</div>
+								<div class="form-group">
+											<label for="studentcode">Student Code</label>
+											<input class="form-control" type="text" id="studentcode" name="studentCode" required="required" placeholder="Student Code" />
+											
+								</div>
+								<div class="form-group">
+											<label for="address">Address</label>
+											<input class="form-control" type="text" id="address" name="address" required="required" placeholder="Address" />
+											
+								</div>
+								<div class="form-group">
+											<label for="averagescore">Average Score</label>
+											<input class="form-control" type="number" id="averagescore" name="averageScore" required="required" placeholder="Average Score" />
+											
+								</div>
+								<div class="form-group">
+											<label for="dateofbirth">Date Of Birth</label>
+											<input class="form-control" type="date" id="dateofbirth" required="required" name="dateOfBirth" />
+											
+								</div>
+								<div class="form-group">
+										<button class="btn btn-lg btn-success btn-block" type="reset" name="reset" value="Reset">Reset</button>
+										<button class="btn btn-lg btn-success btn-block" type="submit" name="insert" th:onclick="|validateForm()|" value="Insert">Insert</button>
+                                 </div>
+								
+		</form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		
+
+	</div>
+	<footer xmlns:th="http://www.thymeleaf.org" th:replace="layouts/footer :: footer" ></footer>
+</body>
+<script th:inline="javascript">
+	/*<![CDATA[*/
+		function validateForm() {
+			var studentname = document.getElementById('studentname').value;
+			var studentcode = document.getElementById('studentcode').value;
+			var address = document.getElementById('address').value;
+			var averagescore = document.getElementById('averagescore').value;
+			var dateofbirth = document.getElementById('dateofbirth').value;
+		
+			var text = "Please Input";
+			
+			if (studentname === "" || studentcode === "" || address === "" || averagescore === "" || dateofbirth === "") {
+				document.getElementById("showError").innerHTML = text;
+				return false;
+			} else if (isNaN(averagescore)) {
+				document.getElementById("showError").innerHTML = "Input Number";
+				return false;
+			} else {
+				return true;
+			}
+		}
+	/*]]>*/
+</script>
+</html>
