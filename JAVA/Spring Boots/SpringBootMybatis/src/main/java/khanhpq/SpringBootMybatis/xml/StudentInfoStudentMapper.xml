@@ -4,6 +4,16 @@
 <mapper
 	namespace="khanhpq.SpringBootMybatis.mapper.StudentInfoStudentMapper">
 	
+	<resultMap id="resultStudentInfoStudent" type="StudentInfoStudent">
+		<id property="infoId" column="info_id" />
+		<id property="studentId" column="student_id" />
+		<result property="address" column="address" />
+		<result property="averageScore" column="average_score" />
+		<result property="dateOfBirth" column="date_of_birth" />
+		<result property="studentName" column="student_name" />
+		<result property="studentCode" column="student_code" />
+	</resultMap>
+	
 	<insert id="insertStudent" parameterType="StudentInfoStudent">
 		INSERT INTO STUDENT (STUDENT_ID, STUDENT_NAME, STUDENT_CODE)
 		VALUES (#{studentId}, #{studentName}, #{studentCode});
@@ -29,13 +39,4 @@
 		AND STUDENT.STUDENT_ID = #{studentId};
 	</update>
 	
-	<resultMap id="resultStudentInfoStudent" type="StudentInfoStudent">
-		<id property="infoId" column="info_id" />
-		<id property="studentId" column="student_id" />
-		<result property="address" column="address" />
-		<result property="averageScore" column="average_score" />
-		<result property="dateOfBirth" column="date_of_birth" />
-		<result property="studentName" column="student_name" />
-		<result property="studentCode" column="student_code" />
-	</resultMap>
 </mapper>

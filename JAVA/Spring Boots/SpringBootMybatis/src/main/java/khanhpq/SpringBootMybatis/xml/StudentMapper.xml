@@ -3,6 +3,12 @@
 
 <mapper	namespace="khanhpq.SpringBootMybatis.mapper.StudentMapper">
 	
+	<resultMap id="resultStudent" type="Student">
+		<id property="studentId" column="student_id" />
+		<result property="studentName" column="student_name" />
+		<result property="studentCode" column="student_code" />
+	</resultMap>
+	
 	<insert id="insertStudent" parameterType="Student">
 		INSERT INTO STUDENT (STUDENT_ID, STUDENT_NAME, STUDENT_CODE)
 		VALUES (#{studentId}, #{studentName}, #{studentCode});
@@ -12,9 +18,4 @@
 		DELETE FROM STUDENT WHERE STUDENT_ID = #{studentId};
 	</delete>
 	
-	<resultMap id="resultStudent" type="Student">
-		<id property="studentId" column="student_id" />
-		<result property="studentName" column="student_name" />
-		<result property="studentCode" column="student_code" />
-	</resultMap>
 </mapper>

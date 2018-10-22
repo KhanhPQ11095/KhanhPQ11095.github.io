@@ -1,16 +1,11 @@
 package khanhpq.SpringBootMybatis.model;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 public class User {
 
 	private Integer userId;
 
-	@NotNull
-	@Size(min = 5, max = 100)
 	private String userName;
-	@NotNull
+	
 	private String password;
 
 	public User() {

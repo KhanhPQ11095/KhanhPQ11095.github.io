@@ -59,7 +59,6 @@ public class SpringMyBatisController {
 			}
 		} catch (Exception e) {
 			model.addAttribute("message", "Wrong 'Username' Or 'Password'");
-			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
@@ -69,9 +68,12 @@ public class SpringMyBatisController {
 	// Lấy data tất cả Sinh Viên
 	public List<StudentInfo> getAllStudent() {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
 		StudentInfoMapper studentMapper = sqlSession.getMapper(StudentInfoMapper.class);
 		List<StudentInfo> studentInfos = studentMapper.selectAllStudentInfoStudent();
+		
 		sqlSession.close();
+		
 		return studentInfos;
 	}
 
@@ -79,15 +81,19 @@ public class SpringMyBatisController {
 	public String index(ModelMap modelMap) {
 		modelMap.addAttribute("studentInfo", new StudentInfo());
 		modelMap.addAttribute("studentInfos", getAllStudent());
+		
 		return "students/studentListAdmin";
 	}
 
 	// Lấy data Sinh viên dựa theo Sinh viên ID
 	public List<StudentInfo> getStudent(String studentId) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
 		StudentInfoMapper studentMapper = sqlSession.getMapper(StudentInfoMapper.class);
 		List<StudentInfo> studentInfos = studentMapper.selectStudentInfoById(studentId);
+		
 		sqlSession.close();
+		
 		return studentInfos;
 	}
 
@@ -95,6 +101,7 @@ public class SpringMyBatisController {
 	public String editRecord(ModelMap modelMap, @RequestParam("studentId") String studentId) {
 		List<StudentInfo> studentInfos = getStudent(studentId);
 		modelMap.addAttribute("studentInfos", studentInfos);
+		
 		return "students/updateStudent";
 	}
 
@@ -146,7 +153,6 @@ public class SpringMyBatisController {
 			sqlSession.commit();
 		} catch (Exception e) {
 			sqlSession.rollback();
-			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
@@ -184,7 +190,6 @@ public class SpringMyBatisController {
 			sqlSession.commit();
 		} catch (Exception e) {
 			sqlSession.rollback();
-			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
@@ -195,9 +200,12 @@ public class SpringMyBatisController {
 	// Tìm kiếm Sinh viên dựa vào Name hoặc Id
 	public List<StudentInfo> getStudentByName(String studentName) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
 		StudentInfoMapper studentInfoMapper = sqlSession.getMapper(StudentInfoMapper.class);
 		List<StudentInfo> studentInfos = studentInfoMapper.selectStudentInfoByName(studentName);
+		
 		sqlSession.close();
+		
 		return studentInfos;
 	}
 
@@ -241,6 +249,7 @@ public class SpringMyBatisController {
 		request.setAttribute("page", paging);
 
 		sqlSession.close();
+		
 		return "students/studentListAdmin";
 	}
 
