@@ -75,7 +75,7 @@
 									</div>
 									<div class="form-group">
 										<label for="averagescore">Average Score</label>
-										<input class="form-control" type="number" id="averagescore" name="averageScore" th:value="${studentInfo.averageScore}" placeholder="Average Score" />
+										<input class="form-control" type="number" id="averagescore" min="0" max="10" name="averageScore" th:value="${studentInfo.averageScore}" placeholder="Average Score" />
 									</div>
 									<div class="form-group">
 										<label for="dateofbirth">Date Of Birth</label>
