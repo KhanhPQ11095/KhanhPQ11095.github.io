@@ -3,7 +3,42 @@
 <head th:replace="layouts/head :: head">
 
 </head>
-
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	function validForm() {
+		var studentname = document.getElementById('studentname').value;
+		var studentcode = document.getElementById('studentcode').value;
+		var address = document.getElementById('address').value;
+		var averagescore = document.getElementById('averagescore').value;
+		var dateofbirth = document.getElementById('dateofbirth').value;
+		
+		var nearby = new Array();
+		nearby[0] = document.getElementById('errorStudentName');
+		nearby[1] = document.getElementById('errorStudentCode');
+		nearby[2] = document.getElementById('errorAddress');
+		nearby[3] = document.getElementById('errorAverageScore');
+		nearby[4] = document.getElementById('errorDateOfBirth');
+		
+		if (studentname == '' || studentname.length < 5) {
+			nearby[0].innerHTML = '<span>Input Student Name and greater than 5 characters</span>';
+			return false;
+		} if (studentcode == '' || studentcode.length < 5) {
+			nearby[1].innerHTML = '<span>Input Student Code and greater than 5 characters</span>';
+			return false;
+		} if (address == '' || address.length < 5) {
+			nearby[2].innerHTML = '<span>Input Address and greater than 5 characters</span>';
+			return false;
+		} if (averagescore == '') {
+			nearby[3].innerHTML = '<span>Input Average Score and >= 0 ; <= 10</span>';
+			return false;
+		} if (dateofbirth == '') {
+			nearby[4].innerHTML = '<span>Input Date Of Birth</span>';
+			return false;
+		}
+		return true;
+	}
+	/*]]>*/
+</script>
 <body>
 	<div id="wrapper">
 		<header xmlns:th="http://www.thymeleaf.org" th:replace="layouts/header2 :: header2" > </header>
@@ -22,27 +57,32 @@
                         </div>
                         <div class="panel-body" style="width:50%; height: 50%; margin: auto;">
 							<p th:utext="${message}">..!..</p>
-							<form method="POST" id="insertForm" role="form" th:action="@{/form-insert}" th:object="${student}">
-								<span id="showError"></span>
+							<form method="POST" id="insertForm" role="form" onsubmit="return validForm();" th:action="@{/form-insert}" th:object="${student}">
+								<p id="showError"></p>
 								<div class="form-group">
 									<label for="studentname">Student Name</label>
-									<input class="form-control" type="text" id="studentname" name="studentName" autofocus="autofocus" required="required" placeholder="Student Name" />
+									<input class="form-control" type="text" id="studentname" name="studentName" autofocus="autofocus" placeholder="Student Name" />
+									<p id="errorStudentName"></p>
 								</div>
 								<div class="form-group">
 									<label for="studentcode">Student Code</label>
-									<input class="form-control" type="text" id="studentcode" name="studentCode" required="required" placeholder="Student Code" />											
+									<input class="form-control" type="text" id="studentcode" name="studentCode" placeholder="Student Code" />											
+									<p id="errorStudentCode"></p>
 								</div>
 								<div class="form-group">
 									<label for="address">Address</label>
-									<input class="form-control" type="text" id="address" name="address" required="required" placeholder="Address" />
+									<input class="form-control" type="text" id="address" name="address" placeholder="Address" />
+									<p id="errorAddress"></p>
 								</div>
 								<div class="form-group">
 									<label for="averagescore">Average Score</label>
-									<input class="form-control" type="number" id="averagescore" name="averageScore" required="required" placeholder="Average Score" />
+									<input class="form-control" type="number" id="averagescore" min="0" max="10" name="averageScore" placeholder="Average Score" />
+									<p id="errorAverageScore"></p>
 								</div>
 								<div class="form-group">
 									<label for="dateofbirth">Date Of Birth</label>
-									<input class="form-control" type="date" id="dateofbirth" required="required" name="dateOfBirth" />
+									<input class="form-control" type="date" id="dateofbirth" name="dateOfBirth" />
+									<p id="errorDateOfBirth"></p>
 								</div>
 								<div class="form-group">
 									<button class="btn btn-lg btn-success btn-block" type="reset" name="reset" value="Reset">Reset</button>

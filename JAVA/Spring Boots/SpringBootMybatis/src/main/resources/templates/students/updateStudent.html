@@ -3,7 +3,42 @@
 <head th:replace="layouts/head :: head">
 
 </head>
-
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	function validForm() {
+		var studentname = document.getElementById('studentname').value;
+		var studentcode = document.getElementById('studentcode').value;
+		var address = document.getElementById('address').value;
+		var averagescore = document.getElementById('averagescore').value;
+		var dateofbirth = document.getElementById('dateofbirth').value;
+		
+		var nearby = new Array();
+		nearby[0] = document.getElementById('errorStudentName');
+		nearby[1] = document.getElementById('errorStudentCode');
+		nearby[2] = document.getElementById('errorAddress');
+		nearby[3] = document.getElementById('errorAverageScore');
+		nearby[4] = document.getElementById('errorDateOfBirth');
+		
+		if (studentname == '' || studentname.length < 5) {
+			nearby[0].innerHTML = '<span>Input Student Name and greater than 5 characters</span>';
+			return false;
+		} if (studentcode == '' || studentcode.length < 5) {
+			nearby[1].innerHTML = '<span>Input Student Code and greater than 5 characters</span>';
+			return false;
+		} if (address == '' || address.length < 5) {
+			nearby[2].innerHTML = '<span>Input Address and greater than 5 characters</span>';
+			return false;
+		} if (averagescore == '') {
+			nearby[3].innerHTML = '<span>Input Average Score and >= 0 ; <= 10</span>';
+			return false;
+		} if (dateofbirth == '') {
+			nearby[4].innerHTML = '<span>Input Date Of Birth</span>';
+			return false;
+		}
+		return true;
+	}
+	/*]]>*/
+</script>
 <body>
 	<div id="wrapper">
 		<header xmlns:th="http://www.thymeleaf.org" th:replace="layouts/header2 :: header2"> </header>
@@ -20,7 +55,7 @@
 						<div class="panel-heading">Update</div>
 						<div class="panel-body" style="width: 50%; height: 50%; margin: auto;">
 							<p th:utext="${message}">..!..</p>
-							<form th:action="@{/form-update}" th:object="${student}" method="POST">
+							<form th:action="@{/form-update}" th:object="${student}" onsubmit="return validForm();" method="POST">
 								<th:block th:each="studentInfo : ${studentInfos}">
 									<div class="form-group">
 										<label for="studentid">Student ID</label>
@@ -28,23 +63,23 @@
 									</div>
 									<div class="form-group">
 										<label for="studentname">Student Name</label>
-										<input class="form-control" type="text" id="studentname" name="studentName" th:value="${studentInfo.student.studentName}" autofocus="autofocus" placeholder="Student Name" required="required" />
+										<input class="form-control" type="text" id="studentname" name="studentName" th:value="${studentInfo.student.studentName}" autofocus="autofocus" placeholder="Student Name" />
 									</div>
 									<div class="form-group">
 										<label for="studentcode">Student Code</label>
-										<input class="form-control" type="text" id="studentcode" name="studentCode" th:value="${studentInfo.student.studentCode}" placeholder="Student Code" required="required" />
+										<input class="form-control" type="text" id="studentcode" name="studentCode" th:value="${studentInfo.student.studentCode}" placeholder="Student Code" />
 									</div>
 									<div class="form-group">
 										<label for="address">Address</label>
-										<input class="form-control" type="text" id="address" name="address" th:value="${studentInfo.address}" placeholder="Address" required="required" />
+										<input class="form-control" type="text" id="address" name="address" th:value="${studentInfo.address}" placeholder="Address" />
 									</div>
 									<div class="form-group">
 										<label for="averagescore">Average Score</label>
-										<input class="form-control" type="number" id="averagescore" name="averageScore" th:value="${studentInfo.averageScore}" placeholder="Average Score" required="required" />
+										<input class="form-control" type="number" id="averagescore" name="averageScore" th:value="${studentInfo.averageScore}" placeholder="Average Score" />
 									</div>
 									<div class="form-group">
 										<label for="dateofbirth">Date Of Birth</label>
-										<input class="form-control" type="date" id="dateofbirth" name="dateOfBirth" th:value="${studentInfo.dateOfBirth}" required="required" />
+										<input class="form-control" type="date" id="dateofbirth" name="dateOfBirth" th:value="${studentInfo.dateOfBirth}" />
 									</div>
 								</th:block>
 								<button class="btn btn-lg btn-success btn-block" type="submit" name="update" value="Update">Update</button>

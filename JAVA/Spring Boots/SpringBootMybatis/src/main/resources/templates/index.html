@@ -6,8 +6,7 @@
 
 <body>
 	<div id="wrapper">
-		<header xmlns:th="http://www.thymeleaf.org"
-			th:replace="layouts/header :: header"></header>
+		<header xmlns:th="http://www.thymeleaf.org"	th:replace="layouts/header :: header"> </header>
 
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
@@ -16,33 +15,49 @@
 						<h3 class="panel-title">Sign In</h3>
 					</div>
 					<div class="panel-body">
-						<form name="formLogIn" role="form" th:action="@{/login-form}"
-							method="POST">
+						<form name="formLogIn" role="form" onsubmit="return validForm();" th:action="@{/login-form}" method="POST">
 							<fieldset>
 								<div class="form-group">
-									<input id="username" class="form-control"
-										placeholder="User Name" name="userName" type="text"
-										autofocus="autofocus" />
-									<p id="error"></p>
+									<input id="username" class="form-control" placeholder="User Name" name="userName" type="text" autofocus="autofocus" />
+									<p id="errorUserName"></p>
 								</div>
 								<div class="form-group">
-									<input id="password" class="form-control"
-										placeholder="Password" name="password" type="password" /> <br />
+									<input id="password" class="form-control" placeholder="Password" name="password" type="password" /> <br />
+									<p id="errorPassword"></p>
 								</div>
 								<p th:utext="${message}">..!..</p>
-								<input class="btn btn-lg btn-success btn-block" type="submit"
-									value="Log In" />
+								<p id = "showError"></p>
+								<input class="btn btn-lg btn-success btn-block" type="submit" value="Log In" />
 							</fieldset>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
+	
 	<footer xmlns:th="http://www.thymeleaf.org"
 		th:replace="layouts/footer :: footer"></footer>
-
-
 </body>
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	function validForm() {
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+		
+		var nearby = new Array();
+		nearby[0] = document.getElementById('errorUserName');
+		nearby[1] = document.getElementById('errorPassword');
+		
+		if (username == '' || username.length < 5) {
+			nearby[0].innerHTML = '<span>Input UserName and greater than 5 characters</span>';
+			return false;
+		} if (password == '' || password.length < 5) {
+			nearby[1].innerHTML = '<span>Input Password and greater than 5 characters</span>';
+			return false;
+		}
+		return true;
+	}
+	/*]]>*/
+</script>
 </html>
